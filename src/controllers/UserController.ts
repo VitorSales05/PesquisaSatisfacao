@@ -12,9 +12,8 @@ class UserController {
 
         
         // verifica se já existe usuario cadastrado com o mesmo email
-        const userAlreadyExists = await usersRepository.findOne({
-            email
-        });
+        const userAlreadyExists = await usersRepository.findOne({ email });
+        
         if(userAlreadyExists){
             return response.status(400).json({
                 error:"User Already Exists!"
@@ -22,10 +21,7 @@ class UserController {
         }
         
         // realiza o cadastro do usuario
-        const user = usersRepository.create({
-            name, 
-            email,
-        });
+        const user = usersRepository.create({ name, email });
         await usersRepository.save(user);
         return response.status(201).json(user);
     }

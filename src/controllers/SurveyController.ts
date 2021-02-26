@@ -11,11 +11,9 @@ class SurveyController {
         // Este commando faz com que a UdersRepository manipule as tabela
         const surveysRepository = getCustomRepository(SurveysRepository);
 
+        
         // realiza o cadastro do survey
-        const survey = surveysRepository.create({
-            title,
-            description
-        });
+        const survey = surveysRepository.create({ title, description });
         await surveysRepository.save(survey);
         return response.status(201).json(survey);
     }

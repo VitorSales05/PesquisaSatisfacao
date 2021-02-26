@@ -8,16 +8,16 @@ import { v4 as uuid } from 'uuid';
 class User {
 
     @PrimaryColumn()
-    readonly id: String;
+    readonly id: string;
 
     @Column()
-    name: String;
+    name: string;
 
     @Column()
-    email: String;
+    email: string;
 
     @CreateDateColumn()
-    create_at: Date;
+    created_at: Date;
 
 
     constructor(){
